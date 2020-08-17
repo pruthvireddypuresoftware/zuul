@@ -10,19 +10,16 @@ matrix:
     - arch: arm64
       jdk: openjdk8
       env: GRADLE_PUBLISH=true
-      apt:
-        addons: openjdk-8-jdk
+      before_install: sudo apt-get install openjdk-8-jdk
     - arch: arm64
       jdk: openjdk11
       env: GRADLE_PUBLISH=false
-      apt:
-        addons: openjdk-11-jdk
+      before_install: sudo apt-get install openjdk-11-jdk
     - arch: arm64
       jdk: openjdk14
       env: GRADLE_PUBLISH=false
-      apt:
-        addons: openjdk-14-jdk
-
+      before_install: sudo apt-get install openjdk-14-jdk
+      
 install: "./installViaTravis.sh"
 script: "./buildViaTravis.sh"
 cache:
